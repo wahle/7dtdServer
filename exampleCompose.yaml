@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  7dtd_server:
+    image: yourusername/7dtd_server:latest
+    container_name: 7dtd_server
+    ports:
+      - "26900-26902:26900-26902/tcp"
+      - "26900-26902:26900-26902/udp"
+    volumes:
+      - /path/to/game/data:/7dtd
+      - /path/to/backups:/backups
+      - /path/to/logs:/logs
+    environment:
+      - STEAMCMD_DIR=/steamcmd
+      - STEAMAPPID=294420
+      - STEAMAPP_DIR=/7dtd
+      - STEAMAPP_USER=anonymous
+      - LOG_DIR=/logs
+      - BACKUP_DIR=/backups
