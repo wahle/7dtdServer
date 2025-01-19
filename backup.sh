@@ -7,13 +7,13 @@ BACKUP_FILE="${BACKUP_DIR}/7dtd_backup_$(date +%Y%m%d%H%M%S).tar.gz"
 mkdir -p ${BACKUP_DIR}
 
 # Stop the server
-docker stop 7dtd_server
+/home/steam/sdtdserver stop
 
 # Create a backup
-tar -czvf ${BACKUP_FILE} -C ${STEAMAPP_DIR} .
+tar -czvf ${BACKUP_FILE} -C ${SERVER_DIR} .
 
 # Start the server
-docker start 7dtd_server
+/home/steam/sdtdserver start
 
 # Delete older backups, keeping only the last 7
 cd ${BACKUP_DIR}
